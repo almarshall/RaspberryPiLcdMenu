@@ -76,44 +76,28 @@ def DoReboot():
         sleep(0.25)
 
 def LcdOff():
-    global currentLcd
-    currentLcd = lcd.set_backlight(False)
-    lcd.backlight(currentLcd)
+    lcd.set_backlight(False)
 
 def LcdOn():
-    global currentLcd
-    currentLcd = lcd.set_backlight(True)
-    lcd.backlight(currentLcd)
+    lcd.set_backlight(True)
 
 def LcdRed():
-    global currentLcd
-    currentLcd = lcd.RED
-    lcd.backlight(currentLcd)
+    lcd.set_color(1.0, 0.0, 0.0)
 
 def LcdGreen():
-    global currentLcd
-    currentLcd = lcd.GREEN
-    lcd.backlight(currentLcd)
+    lcd.set_color(0.0, 1.0, 0.0)
 
 def LcdBlue():
-    global currentLcd
-    currentLcd = lcd.BLUE
-    lcd.backlight(currentLcd)
+    lcd.set_color(0.0, 0.0, 1.0)
 
 def LcdYellow():
-    global currentLcd
-    currentLcd = lcd.YELLOW
-    lcd.backlight(currentLcd)
+    lcd.set_color(1.0, 1.0, 0.0)
 
 def LcdTeal():
-    global currentLcd
-    currentLcd = lcd.TEAL
-    lcd.backlight(currentLcd)
+    lcd.set_color(0.0, 1.0, 1.0)
 
 def LcdViolet():
-    global currentLcd
-    currentLcd = lcd.VIOLET
-    lcd.backlight(currentLcd)
+    lcd.set_color(1.0, 0.0, 1.0)
 
 def ShowDateTime():
     if DEBUG:
