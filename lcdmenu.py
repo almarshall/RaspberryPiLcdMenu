@@ -209,7 +209,7 @@ def ShowIPAddress():
     lcd.clear()
     lcd.message(commands.getoutput("/sbin/ifconfig").split("\n")[1].split()[1][5:])
     while 1:
-        if lcd.buttonPressed(LCD.LEFT):
+        if lcd.is_pressed(LCD.LEFT):
             break
         sleep(0.25)
     
