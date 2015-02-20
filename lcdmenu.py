@@ -41,11 +41,11 @@ def DoQuit():
     lcd.clear()
     lcd.message('Are you sure?\nPress Sel for Y')
     while 1:
-        if lcd.buttonPressed(LCD.LEFT):
+        if lcd.is_pressed(LCD.LEFT):
             break
-        if lcd.buttonPressed(LCD.SELECT):
+        if lcd.is_pressed(LCD.SELECT):
             lcd.clear()
-            lcd.backlight(lcd.set_backlight(False))
+            lcd.backlight(False)
             quit()
         sleep(0.25)
 
@@ -53,11 +53,11 @@ def DoShutdown():
     lcd.clear()
     lcd.message('Are you sure?\nPress Sel for Y')
     while 1:
-        if lcd.buttonPressed(LCD.LEFT):
+        if lcd.is_pressed(LCD.LEFT):
             break
-        if lcd.buttonPressed(LCD.SELECT):
+        if lcd.is_pressed(LCD.SELECT):
             lcd.clear()
-            lcd.backlight(lcd.set_backlight(False))
+            lcd.backlight(False)
             commands.getoutput("sudo shutdown -h now")
             quit()
         sleep(0.25)
@@ -66,11 +66,11 @@ def DoReboot():
     lcd.clear()
     lcd.message('Are you sure?\nPress Sel for Y')
     while 1:
-        if lcd.buttonPressed(LCD.LEFT):
+        if lcd.is_pressed(LCD.LEFT):
             break
-        if lcd.buttonPressed(LCD.SELECT):
+        if lcd.is_pressed(LCD.SELECT):
             lcd.clear()
-            lcd.backlight(lcd.set_backlight(False))
+            lcd.set_backlight(False)
             commands.getoutput("sudo reboot")
             quit()
         sleep(0.25)
