@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 from xml.dom.minidom import *
 import Adafruit_GPIO.I2C
 import Adafruit_GPIO.MCP230xx
-from Adafruit_CharLCD import Adafruit_CharLCDPlate as LCD
+import Adafruit_CharLCD as LCD
 from ListSelector import ListSelector
 
 import smbus
