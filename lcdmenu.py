@@ -103,7 +103,7 @@ def ShowDateTime():
     if DEBUG:
         print('in ShowDateTime')
     lcd.clear()
-    while not(lcd.buttonPressed(LCD.LEFT)):
+    while not(lcd.is_pressed(LCD.LEFT)):
         sleep(0.25)
         lcd.home()
         lcd.message(strftime('%a %b %d %Y\n%I:%M:%S %p', localtime()))
