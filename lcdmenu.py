@@ -11,8 +11,8 @@ from string import split
 from time import sleep, strftime, localtime
 from datetime import datetime, timedelta
 from xml.dom.minidom import *
-from Adafruit_GPIO.I2C
-from Adafruit_GPIO.MCP230xx
+import Adafruit_GPIO.I2C
+import Adafruit_GPIO.MCP230xx
 from Adafruit_CharLCD import Adafruit_CharLCDPlate AS LCD
 from ListSelector import ListSelector
 
