@@ -391,14 +391,14 @@ class CommandToRun:
             lcd.message(self.clist[0])
             for i in range(1, len(self.clist)):
                 while 1:
-                    if lcd.is_pressed(lcd.DOWN):
+                    if lcd.is_pressed(LCD.DOWN):
                         break
                     sleep(0.25)
                 lcd.clear()
                 lcd.message(self.clist[i-1]+'\n'+self.clist[i])          
                 sleep(0.5)
         while 1:
-            if lcd.is_pressed(lcd.LEFT):
+            if lcd.is_pressed(LCD.LEFT):
                 break
 
 class Widget:
