@@ -492,7 +492,7 @@ class Display:
     def update(self, command):
         global currentLcd
         global lcdstart
-        lcd.backlight(currentLcd)
+        #lcd.backlight(currentLcd)
         lcdstart = datetime.now()
         if DEBUG:
             print('do',command)
