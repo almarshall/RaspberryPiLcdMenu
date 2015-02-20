@@ -45,7 +45,7 @@ def DoQuit():
             break
         if lcd.is_pressed(LCD.SELECT):
             lcd.clear()
-            lcd.backlight(False)
+            lcd.set_backlight(False)
             quit()
         sleep(0.25)
 
