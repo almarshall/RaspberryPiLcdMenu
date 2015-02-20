@@ -169,32 +169,32 @@ def SetDateTime():
     sleep(0.5)
     while 1:
         curval = curvalues[current]
-        if lcd.buttonPressed(lcd.UP):
+        if lcd.is_pressed(lcd.UP):
             curval += 1
             curvalues[current] = ValidateDateDigit(current, curval)
             curtime = (curvalues[2], curvalues[0], curvalues[1], curvalues[3], curvalues[4], curvalues[5], 0, 0, 0)
             lcd.home()
             lcd.message(strftime("%b %d, %Y  \n%I:%M:%S %p  ", curtime))
             lcd.setCursor(curc[current], curr[current])
-        if lcd.buttonPressed(lcd.DOWN):
+        if lcd.is_pressed(lcd.DOWN):
             curval -= 1
             curvalues[current] = ValidateDateDigit(current, curval)
             curtime = (curvalues[2], curvalues[0], curvalues[1], curvalues[3], curvalues[4], curvalues[5], 0, 0, 0)
             lcd.home()
             lcd.message(strftime("%b %d, %Y  \n%I:%M:%S %p  ", curtime))
             lcd.setCursor(curc[current], curr[current])
-        if lcd.buttonPressed(lcd.RIGHT):
+        if lcd.is_pressed(lcd.RIGHT):
             current += 1
             if current > 5:
                 current = 5
             lcd.setCursor(curc[current], curr[current])
-        if lcd.buttonPressed(lcd.LEFT):
+        if lcd.is_pressed(lcd.LEFT):
             current -= 1
             if current < 0:
                 lcd.noBlink()
                 return
             lcd.setCursor(curc[current], curr[current])
-        if lcd.buttonPressed(lcd.SELECT):
+        if lcd.is_pressed(lcd.SELECT):
             # set the date time in the system
             lcd.noBlink()
             os.system(strftime('sudo date --set="%d %b %Y %H:%M:%S"', curtime))
@@ -219,9 +219,9 @@ def Use10Network():
     lcd.clear()
     lcd.message('Are you sure?\nPress Sel for Y')
     while 1:
-        if lcd.buttonPressed(LCD.LEFT):
+        if lcd.is_pressed(LCD.LEFT):
             break
-        if lcd.buttonPressed(LCD.SELECT):
+        if lcd.is_pressed(LCD.SELECT):
             # uncomment the following once you have a separate network defined
             #commands.getoutput("sudo cp /etc/network/interfaces.hub.10 /etc/network/interfaces")
             lcd.clear()
@@ -236,9 +236,9 @@ def UseDHCP():
     lcd.clear()
     lcd.message('Are you sure?\nPress Sel for Y')
     while 1:
-        if lcd.buttonPressed(LCD.LEFT):
+        if lcd.is_pressed(LCD.LEFT):
             break
-        if lcd.buttonPressed(LCD.SELECT):
+        if lcd.is_pressed(LCD.SELECT):
             # uncomment the following once you get an original copy in place
             #commands.getoutput("sudo cp /etc/network/interfaces.orig /etc/network/interfaces")
             lcd.clear()
@@ -335,29 +335,29 @@ def GetWord():
     curword = list("A")
     curposition = 0
     while 1:
-        if lcd.buttonPressed(LCD.UP):
+        if lcd.is_pressed(LCD.UP):
             if (ord(curword[curposition]) < 127):
                 curword[curposition] = chr(ord(curword[curposition])+1)
             else:
                 curword[curposition] = chr(32)
-        if lcd.buttonPressed(LCD.DOWN):
+        if lcd.is_pressed(LCD.DOWN):
             if (ord(curword[curposition]) > 32):
                 curword[curposition] = chr(ord(curword[curposition])-1)
             else:
                 curword[curposition] = chr(127)
-        if lcd.buttonPressed(LCD.RIGHT):
+        if lcd.is_pressed(LCD.RIGHT):
             if curposition < DISPLAY_COLS - 1:
                 curword.append('A')
                 curposition += 1
                 lcd.setCursor(curposition, 0)
             sleep(0.75)
-        if lcd.buttonPressed(LCD.LEFT):
+        if lcd.is_pressed(LCD.LEFT):
             curposition -= 1
             if curposition <  0:
                 lcd.noBlink()
                 return
             lcd.setCursor(curposition, 0)
-        if lcd.buttonPressed(LCD.SELECT):
+        if lcd.is_pressed(LCD.SELECT):
             # return the word
             sleep(0.75)
             return ''.join(curword)
@@ -391,14 +391,14 @@ class CommandToRun:
             lcd.message(self.clist[0])
             for i in range(1, len(self.clist)):
                 while 1:
-                    if lcd.buttonPressed(lcd.DOWN):
+                    if lcd.is_pressed(lcd.DOWN):
                         break
                     sleep(0.25)
                 lcd.clear()
                 lcd.message(self.clist[i-1]+'\n'+self.clist[i])          
                 sleep(0.5)
         while 1:
-            if lcd.buttonPressed(lcd.LEFT):
+            if lcd.is_pressed(lcd.LEFT):
                 break
 
 class Widget:
