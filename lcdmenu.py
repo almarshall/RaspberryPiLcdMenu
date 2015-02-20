@@ -34,7 +34,7 @@ lcd = LCD.Adafruit_CharLCDPlate()
 #    quit()
 
 #lcd.begin(DISPLAY_COLS, DISPLAY_ROWS)
-lcd.backlight(lcd.set_backlight(False))
+lcd.set_backlight(False)
 
 # commands
 def DoQuit():
