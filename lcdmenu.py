@@ -207,7 +207,7 @@ def ShowIPAddress():
     if DEBUG:
         print('in ShowIPAddress')
     lcd.clear()
-    lcd.message(commands.getoutput("/sbin/ifconfig").split("\n")[1].split()[1][5:])
+    lcd.message(commands.getoutput("/sbin/ifconfig wlan0").split("\n")[1].split()[1][5:])
     while 1:
         if lcd.is_pressed(LCD.LEFT):
             break
